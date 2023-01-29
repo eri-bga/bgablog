@@ -175,8 +175,8 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'bgashebr@gmail.com'
-EMAIL_HOST_PASSWORD = 'wwiaubbvpzltfizv'
+EMAIL_HOST_USER = 'testtest@gmail.com'
+EMAIL_HOST_PASSWORD = 'testtesttst'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -189,8 +189,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-RECAPTCHA_PUBLIC_KEY = '6Lf4ugYkAAAAABfHkMYDRzohE1_1Izpp-etR1N3P'
-RECAPTCHA_PRIVATE_KEY = '6Lf4ugYkAAAAAN7df3tUZZRl-2Xkvotzd4MGE95b'
+RECAPTCHA_PUBLIC_KEY = 'add your public key'
+RECAPTCHA_PRIVATE_KEY = 'add your private key'
 SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 RECAPTCHA_REQUIRED_SCORE = 0.85
 
