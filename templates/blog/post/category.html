@@ -1,0 +1,11 @@
+<ul class="unstyled">
+    {% for category in category_lists %}
+        <li>
+            <a 
+                href="/{{ category.slug }}"
+                class='text-blue-700 text-sm font-bold pb-4'
+            >
+                {{ category.title }}
+            </a>
+        </li>
+    {% endfor %}

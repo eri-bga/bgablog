@@ -1,0 +1,17 @@
+<div class="flex items-center py-8">
+    {% if page.has_previous %}
+        <a href="?page={{ page.previous_page_number }}"
+            class="h-10 w-20 pr-3 hover:bg-blue-600 font-semibold text-semibold text-sm flex items-center justify-center">
+            <i class="fas fa-arrow-left mr-2"></i> Previous
+        </a>
+    {% endif %}
+    <span class="h-10 w-20 font-semibold text-gray-800 text-sm flex items-center justify-center">
+        Page {{ page.number }} of {{ page.paginator.num_pages }}
+    </span>
+    {% if page.has_next %}
+        <a href="?page={{ page.next_page_number }}"
+            class="h-10 w-20 font-semibold text-gray-800 hover:bg-blue-600 text-sm flex items-center justify-center ml-3">
+            Next <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+    {% endif %}
+</div> 

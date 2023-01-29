@@ -1,0 +1,11 @@
+<ul class="unstyled">
+    {% for post in latest_posts %}
+        <li>
+            <a 
+                href="{{ post.get_absolute_url }}"
+                class='text-blue-700 text-sm font-bold pb-4'
+            >
+                {{ post.title }}
+            </a>
+        </li>
+    {% endfor %}

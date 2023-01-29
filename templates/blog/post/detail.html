@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+
+{% block title %}{{post.title}}{% endblock title %}
+
+{% block content %}
+   <article class="flex flex-col shadow my-4">
+    <!-- Article Image -->
+    <div class='relative'>
+        <a href="#" class="hover:opacity-75">
+            <img src="{{ post.image.url }}">
+        </a>
+        <h1 class="absolute text-5xl text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">{{ post.title }}</h1>
+    </div>
+    <div class="bg-white dark:bg-slate-900 flex flex-col justify-start p-6">
+        <div class="text-slate-500 dark:text-slate-400 text-sm mt-3">
+            Tags:
+            {% for tag in post.tags.all %}
+                <a 
+                    href="{% url 'blog:post_list_by_tag' tag.slug %}"
+                    class="text-blue-700 text-sm font-bold uppercase pb-4"
+                >
+                    {{ tag.name }}
+                </a>
+                    {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </div>
+        <div class='w-full flex items-start md:w-full pb-3'>
+            <div class='flex items-start w-1/2 text-gray-700 px-2 mr-auto'>
+                <div class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+                    By <a href="{% url 'users:profile' author %}" class="font-semibold hover:text-gray-800">{{ post.author }}</a>, Published on {{ post.publish }}
+                </div>
+            </div>
+            {% if post.author == user %}
+                <div class=''>
+                    {% if type == "series" %}
+                        <a class="bg-sky-500 hover:bg-sky-700 text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1" href="{% url 'blog:category_update' category.category_slug %}">Update</a>
+                        <a class="bg-rose-700 hover:bg-rose-700 text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1" href="{% url 'blog:category_delete' category.category_slug %}">Delete</a>                   
+                    {% else %}
+                        <a class="bg-sky-500 hover:bg-sky-700 text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1" href="{% url 'blog:post_update' post.category.category_slug  post.post_slug %}">Update</a>
+                        <a class="bg-rose-700 hover:bg-rose-500 text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1" href="{% url 'blog:post_delete' post.category.category_slug  post.post_slug %}">Delete</a>                      
+                    {% endif %}
+                </div>
+            {% endif %}
+
+        </div>
+        <div class="text-slate-500 dark:text-slate-400 text-md pt-3 mt-3">
+            {{ post.body|markdown }}
+        </div>
+        <div class='text-slate-500 dark:text-slate-400 mt-2 text-sm'>
+            <a 
+                href="{% url "blog:post_share" post.id %}"
+                class="text-blue-700 text-sm font-bold uppercase pb-4"
+                >
+                Share this post by email
+            </a>
+        </div>
+        <h2 class="text-slate-500 dark:text-slate-400 text-2xl font-bold pb-3 mt-4">Similar posts</h2>
+        {% for post in similar_posts %}
+            <div class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+                <a 
+                    href="{{ post.get_absolute_url }}"
+                    class="text-blue-700 text-2xl font-bold pb-3"
+                >
+                    {{ post.title }}
+                </a>
+            </div>
+            <div class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+                {{ post.body|truncatewords:50 }}
+            </div>
+        {% empty %}
+        <div class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+            There are no similar posts yet.
+        </div>
+        {% endfor %}
+        
+        {% with comments.count as total_comments %}
+            <h2 class="text-slate-500 dark:text-slate-400 text-sm pt-3 mt-3">
+                {{ total_comments }} comment{{ total_comments|pluralize }}
+            </h2>
+        {% endwith %}
+        {% for comment in comments %}
+            <div class="text-slate-500 dark:text-slate-400">
+                <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+                    Comment {{ forloop.counter }} by {{ comment.name }}
+                    {{ comment.created }}
+                </p>
+                <p class="mt-2 text-sm">
+                    {{ comment.body|linebreaks }}
+                </p>
+            </div>
+        {% empty %}
+        <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+            There are no comments.
+        </p>
+        {% endfor %}
+        {% if user.is_authenticated %}
+            {% include "includes/comment_form.html" %}
+        {% else %}
+            <p>
+                <a 
+                    href="{% url "users:login" %}"
+                    class="text-blue-700 text-sm font-bold uppercase pb-4"
+                >
+                    Login to comment
+                </a>
+            </p>
+        {% endif %}
+    </div>
+    </article>
+{% endblock %}

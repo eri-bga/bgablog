@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load  static tailwind_tags %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="flex justify-center items-center w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <div class="w-full bg-white rounded shadow-2xl p-2 m-2">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <legend class="text-lg font-medium border-b-2 border-gray-200 mb-4">New {{ object }}</legend>
+                {{ form|crispy }}
+                {{ form.media }}
+            </div>
+            <div class="text-center mt-4">
+                <button class="bg-indigo-500 text-white p-2 rounded-lg hover:bg-indigo-600" type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,33 @@
+<footer class="bg-white dark:bg-slate-900 w-full border-t pb-12">
+    
+    <div class="text-slate-500 dark:text-slate-400 w-full container mx-auto flex flex-col items-center">
+        
+        <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
+            <a href="{% url 'users:login' %}" class="uppercase px-3">Login</a>
+            <a href="{% url 'users:register' %}" class="uppercase px-3">Sign up</a>
+            <a href="/" class="uppercase px-3">Home</a>
+            <a href="/" class="uppercase px-3">Subscribe to my feed</a>
+        </div>
+        {% if not user.is_authenticated %}
+        <form class="bg-slate-300 rounded-lg shadow-md" action="{% url 'users:subscribe' %}" method="post">
+            {% csrf_token %}
+            <div class="flex flex-wrap mb-4 justify-between">
+                <div class="p-6">
+                    <h2 class="text-lg font-medium">Subscribe to our newsletter</h2>
+                </div>
+                    <div class="p-6">
+                    <input id="name" name="name" class="border border-gray-400 p-2 rounded-lg w-full" placeholder="Your Name"/>
+                </div>
+                <div class="p-6">
+                    <input id="email" name="email" type="email" class="border border-gray-400 p-2 rounded-lg w-full" placeholder="Email address">
+                </div>
+                <div class="p-6">
+                    <button class="bg-indigo-500 text-white p-2 rounded-lg hover:bg-indigo-600">Subscribe</button>
+                </div>
+            </div>
+            
+          </form>
+          {% endif %}
+        <div class="uppercase pb-6">&copy; bgablog.dev</div>
+    </div>
+</footer>
