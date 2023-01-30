@@ -1,4 +1,4 @@
-# Django mini-cms-blog blog 
+# Django mini-cms-blog
 
 
 <a id="readme-top"></a>
