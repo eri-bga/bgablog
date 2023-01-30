@@ -1,4 +1,4 @@
-# Django mini-cms-blog blog 
+# Django mini-cms-blog
 
 
 <a id="readme-top"></a>
@@ -210,14 +210,14 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [postgresql]: https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white
 [postgresql-url]: https://postgresql.org/
 [product-screenshot]: demo/demo-blog.gif
-[contributors-shield]: https://img.shields.io/github/contributors/eri-bga/mini-cms-blog.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/eri-bga/bgablog.svg?style=for-the-badge
 [contributors-url]: https://github.com/eri-bga/mini-cms-blog/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/eri-bga/mini-cms-blog.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/eri-bga/bgablog.svg?style=for-the-badge
 [forks-url]: https://github.com/eri-bga/mini-cms-blog/network/members
-[stars-shield]: https://img.shields.io/github/stars/eri-bga/mini-cms-blog.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/eri-bga/bgablog.svg?style=for-the-badge
 [stars-url]: https://github.com/eri-bga/mini-cms-blog/stargazers
-[issues-shield]: https://img.shields.io/github/issues/eri-bga/mini-cms-blog.svg?style=for-the-badge
-[issues-url]: https://github.com/eri-bga/mini-cms-blog/issues
-[license-shield]: https://img.shields.io/github/license/eri-bga/mini-cms-blog.svg?style=for-the-badge
-[license-url]: https://github.com/eri-bga/mini-cms-blog/blob/master/LICENSE.txt
+[issues-shield]: https://img.shields.io/github/issues/eri-bga/bgablog.svg?style=for-the-badge
+[issues-url]: https://github.com/eri-bga/bgablog/issues
+[license-shield]: https://img.shields.io/github/license/eri-bga/bgablog.svg?style=for-the-badge
+[license-url]: https://github.com/eri-bga/bgablog/blob/master/LICENSE.txt
 
