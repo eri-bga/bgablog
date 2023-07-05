@@ -8,7 +8,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "^4.1.5"
+Django = "^4.1.10"
 django-tinymce = "^3.5.0"
 fontawesomefree = "^6.2.1"
 django-recaptcha = "^3.0.0"
